@@ -1,0 +1,25 @@
+{
+  "name": "ray/fakemodule",
+  "description":" ",
+  "keywords":[
+  ],
+  "license": "BSD-3-Clause",
+  "autoload":{
+    "psr-4":{
+      "Ray\\FakeModule\\": "src/"
+    }
+  },
+  "autoload-dev":{
+    "psr-4":{
+      "Ray\\FakeModule\\": "tests/",
+      "Ray\\FakeModule\\": "tests/Fake"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-develop": "0.1.x-dev"
+    }
+  }
+}
