@@ -6,6 +6,6 @@
  */
 namespace Ray\FakeContextParam\Exception;
 
-class LogicException extends \LogicException implements ExceptionInterface
+class NotFoundArgumentException extends LogicException
 {
 }

@@ -1,25 +1,32 @@
 {
-  "name": "ray/fakemodule",
-  "description":" ",
-  "keywords":[
-  ],
-  "license": "BSD-3-Clause",
-  "autoload":{
-    "psr-4":{
-      "Ray\\FakeModule\\": "src/"
+    "name": "ray/fake-context-param-module",
+    "description":"",
+    "keywords":[
+      "Ray.Di Module", "Fake context", "Testability"
+    ],
+    "license": "BSD-3-Clause",
+    "autoload":{
+        "psr-4":{
+            "Ray\\FakeContextParam\\": "src/"
+        },
+        "files": ["doctrine_annotations.php"]
+    },
+    "autoload-dev":{
+        "psr-4":{
+            "Ray\\FakeContextParam\\": "tests/",
+            "Ray\\FakeContextParam\\": "tests/Fake"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
+        }
+    },
+    "require": {
+        "ray/di": "~2.0@dev",
+        "doctrine/cache": "~1.0",
+        "bear/resource": "1.*@dev"
     }
-  },
-  "autoload-dev":{
-    "psr-4":{
-      "Ray\\FakeModule\\": "tests/",
-      "Ray\\FakeModule\\": "tests/Fake"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "extra": {
-    "branch-alias": {
-      "dev-develop": "0.1.x-dev"
-    }
-  }
 }
