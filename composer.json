@@ -14,7 +14,12 @@
     "autoload-dev":{
         "psr-4":{
             "Ray\\FakeContextParam\\": "tests/",
-            "Ray\\FakeContextParam\\": "tests/Fake"
+            "Ray\\FakeContextParam\\": "tests/Fake",
+            "BEAR\\Resource\\": [
+                "tests/",
+                "tests/Fake/"
+            ],
+            "FakeVendor\\Sandbox\\": "tests/Fake/FakeVendor/Sandbox/"
         }
     },
     "minimum-stability": "dev",

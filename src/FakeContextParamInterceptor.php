@@ -6,11 +6,13 @@
  */
 namespace Ray\FakeContextParam;
 
+use BEAR\Resource\ResourceInterface;
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Cache\Cache;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
 use Ray\FakeContextParam\Annotation\AbstractFakeContextParam;
+
 
 class FakeContextParamInterceptor implements MethodInterceptor
 {
@@ -25,6 +27,11 @@ class FakeContextParamInterceptor implements MethodInterceptor
     private $cache;
 
     /**
+     * @var Resource
+     */
+    private $resource;
+
+    /**
      * @var
      */
     private $FakeContext;
@@ -32,10 +39,12 @@ class FakeContextParamInterceptor implements MethodInterceptor
     public function __construct(
         Reader $reader,
         Cache $cache,
+        ResourceInterface $resource,
         FakeContext $FakeContext
     ) {
         $this->reader = $reader;
         $this->cache = $cache;
+        $this->resource = $resource;
         $this->FakeContext = $FakeContext;
     }
 
@@ -45,6 +54,9 @@ class FakeContextParamInterceptor implements MethodInterceptor
     public function invoke(MethodInvocation $invocation)
     {
         $method = $invocation->getMethod();
+        $arguments = $invocation->getArguments();
+        $arguments = (array) $arguments;
+
         $annotations = $this->reader->getMethodAnnotations($method);
 
         $fakeUri = '';
@@ -53,9 +65,7 @@ class FakeContextParamInterceptor implements MethodInterceptor
                 $fakeUri = $annotation->uri;
             }
         }
-
-        // TODO: request fakeUri and return body?
-
-        return $invocation->proceed();
+        // TODO:
+        return $this->resource->get->uri($fakeUri)->withQuery($arguments)->eager->request();
     }
 }
