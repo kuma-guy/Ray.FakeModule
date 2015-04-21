@@ -54,6 +54,7 @@ class FakeContextParamInterceptor implements MethodInterceptor
             }
         }
 
+        // TODO: request fakeUri and return body?
 
         return $invocation->proceed();
     }
