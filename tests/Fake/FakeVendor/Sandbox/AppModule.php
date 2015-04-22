@@ -9,8 +9,7 @@ class AppModule extends AbstractModule
 {
     protected function configure()
     {
-        $this->install(new FakeContextParamModule());
         $this->install(new ResourceModule('FakeVendor\Sandbox'));
-        $this->install(new HalModule());
+        $this->install(new FakeContextParamModule);
     }
 }

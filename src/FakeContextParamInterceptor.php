@@ -56,7 +56,6 @@ class FakeContextParamInterceptor implements MethodInterceptor
         $method = $invocation->getMethod();
         $arguments = $invocation->getArguments();
         $arguments = (array) $arguments;
-
         $annotations = $this->reader->getMethodAnnotations($method);
 
         $fakeUri = '';
@@ -65,7 +64,16 @@ class FakeContextParamInterceptor implements MethodInterceptor
                 $fakeUri = $annotation->uri;
             }
         }
-        // TODO:
-        return $this->resource->get->uri($fakeUri)->withQuery($arguments)->eager->request();
+
+        // TODO Refactoring WithQuery Parameter and Resource Chaining?
+        $res = $this->resource
+            ->get
+            ->uri($fakeUri)
+            ->withQuery(['id' => 1])
+            ->eager
+            ->request()
+            ->body;
+
+        return $res;
     }
 }

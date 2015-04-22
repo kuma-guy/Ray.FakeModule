@@ -13,6 +13,7 @@ use Ray\Aop\Arguments;
 use Ray\Aop\ReflectiveMethodInvocation;
 use Ray\Di\Injector;
 use Ray\FakeContextParam\Annotation\Fake;
+use FakeVendor\Sandbox\AppModule;
 
 class FakeParamInjectInterceptorTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,46 +24,30 @@ class FakeParamInjectInterceptorTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->resource = (
-        new Injector(
-            new FakeSchemeModule(new ResourceModule('FakeVendor\Sandbox')), $_ENV['TMP_DIR']
-        )
-        )->getInstance(ResourceInterface::class);
-    }
-
-    private function factory($obj, $method, $annotation, $args = [], $resource)
-    {
-        $invocation = new ReflectiveMethodInvocation(
-            $obj,
-            new \ReflectionMethod($obj, $method),
-            new Arguments($args),
-            [
-                new FakeContextParamInterceptor(
-                    new AnnotationReader,
-                    new ArrayCache,
-                    $resource,
-                    new FakeContext,
-                    $annotation
-                )
-            ]
-        );
-
-        return $invocation;
+        $this->resource = (new Injector(new AppModule()))->getInstance(ResourceInterface::class);
     }
 
     public function testFakeRequest()
     {
-        $obj = new User;
-        // User Resource
-        $invocation = $this->factory($obj, 'onGet', new Fake, ['id' => 1], $this->resource);
-        $invocation->proceed();
+        // Real User Resource with annotation @Fake(uri="app://self/fake/user")
+        $response = $this->resource
+            ->get
+            ->uri('app://self/User')
+            ->withQuery(['id' => 2])
+            ->eager
+            ->request()
+            ->body;
 
-        var_dump($obj);
-        die();
+        // Fake User Resource Body
+        $expected = [];
+        $expected['id']      = 2;
+        $expected['name']    = 'fake';
+        $expected['age']     = 16;
+        $expected['blog_id'] = 12;
 
-        // Fake User Resource Return
-        $expected = true;
-        $this->assertSame($expected, $obj->body['fake']);
-
+        $this->assertSame($expected['id'], $response['id']);
+        $this->assertSame($expected['name'], $response['name']);
+        $this->assertSame($expected['age'], $response['age']);
+        $this->assertSame($expected['blog_id'], $response['blog_id']);
     }
 }
