@@ -12,7 +12,6 @@ use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
 use Ray\FakeContextParam\Annotation\Fake;
 
-
 class FakeContextParamInterceptor implements MethodInterceptor
 {
     /**
