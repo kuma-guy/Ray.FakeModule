@@ -2,17 +2,10 @@
 
 namespace Ray\FakeContextParam;
 
-use BEAR\Resource\FakeSchemeModule;
-use BEAR\Resource\Uri;
-use BEAR\Resource\Module\ResourceModule;
 use BEAR\Resource\ResourceInterface;
-use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Cache\ArrayCache;
-use FakeVendor\Sandbox\Resource\App\User;
-use Ray\Aop\Arguments;
-use Ray\Aop\ReflectiveMethodInvocation;
-use Ray\Di\Injector;
 use Ray\FakeContextParam\Annotation\Fake;
+use Ray\Di\Injector;
+use FakeVendor\Sandbox\Resource\App\User;
 use FakeVendor\Sandbox\AppModule;
 
 class FakeParamInjectInterceptorTest extends \PHPUnit_Framework_TestCase
@@ -33,7 +26,7 @@ class FakeParamInjectInterceptorTest extends \PHPUnit_Framework_TestCase
         $response = $this->resource
             ->get
             ->uri('app://self/User')
-            ->withQuery(['id' => 2])
+            ->withQuery(['id' => 1])
             ->eager
             ->request()
             ->body;

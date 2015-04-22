@@ -6,12 +6,12 @@
  */
 namespace Ray\FakeContextParam;
 
-use BEAR\Resource\ResourceInterface;
+use BEAR\Resource\FactoryInterface;
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Cache\Cache;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
-use Ray\FakeContextParam\Annotation\AbstractFakeContextParam;
+use Ray\FakeContextParam\Annotation\Fake;
 
 
 class FakeContextParamInterceptor implements MethodInterceptor
@@ -25,12 +25,6 @@ class FakeContextParamInterceptor implements MethodInterceptor
      * @var Cache
      */
     private $cache;
-
-    /**
-     * @var Resource
-     */
-    private $resource;
-
     /**
      * @var
      */
@@ -39,12 +33,12 @@ class FakeContextParamInterceptor implements MethodInterceptor
     public function __construct(
         Reader $reader,
         Cache $cache,
-        ResourceInterface $resource,
-        FakeContext $FakeContext
+        FakeContext $FakeContext,
+        FactoryInterface $factory
     ) {
+        $this->factory = $factory;
         $this->reader = $reader;
         $this->cache = $cache;
-        $this->resource = $resource;
         $this->FakeContext = $FakeContext;
     }
 
@@ -56,24 +50,8 @@ class FakeContextParamInterceptor implements MethodInterceptor
         $method = $invocation->getMethod();
         $arguments = $invocation->getArguments();
         $arguments = (array) $arguments;
-        $annotations = $this->reader->getMethodAnnotations($method);
-
-        $fakeUri = '';
-        foreach ($annotations as $annotation) {
-            if ($annotation instanceof AbstractFakeContextParam) {
-                $fakeUri = $annotation->uri;
-            }
-        }
-
-        // TODO Refactoring WithQuery Parameter and Resource Chaining?
-        $res = $this->resource
-            ->get
-            ->uri($fakeUri)
-            ->withQuery(['id' => 1])
-            ->eager
-            ->request()
-            ->body;
-
-        return $res;
+        $annotation = $this->reader->getMethodAnnotation($method, Fake::class);
+        $ro = $this->factory->newInstance($annotation->uri);
+        return call_user_func_array(array($ro, $method->name), $arguments);
     }
 }
