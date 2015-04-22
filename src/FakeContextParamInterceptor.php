@@ -49,11 +49,11 @@ class FakeContextParamInterceptor implements MethodInterceptor
         // Get parameters.
         $arguments = $invocation->getArguments();
         $arguments = (array) $arguments;
-        // Get fake uri for the resource.
+        // Get fake uri for mocking the resource.
         $annotation = $this->reader->getMethodAnnotation($method, Fake::class);
-        // Create fake resource instance and invoke the method.
+        // Create a instance of fake resource.
         $ro = $this->factory->newInstance($annotation->uri);
-
+        // Invoke.
         return call_user_func_array(array($ro, $method->name), $arguments);
     }
 }
