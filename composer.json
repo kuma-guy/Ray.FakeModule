@@ -7,14 +7,14 @@
     "license": "BSD-3-Clause",
     "autoload":{
         "psr-4":{
-            "Ray\\FakeContextParam\\": "src/"
+            "Ray\\FakeModule\\": "src/"
         },
         "files": ["doctrine_annotations.php"]
     },
     "autoload-dev":{
         "psr-4":{
-            "Ray\\FakeContextParam\\": "tests/",
-            "Ray\\FakeContextParam\\": "tests/Fake",
+            "Ray\\FakeModule\\": "tests/",
+            "Ray\\FakeModule\\": "tests/Fake",
             "BEAR\\Resource\\": [
                 "tests/",
                 "tests/Fake/"

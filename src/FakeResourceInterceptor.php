@@ -1,16 +1,16 @@
 <?php
 /**
- * This file is part of the Ray.FakeContextParam
+ * This file is part of the Ray.FakeModule
  *
  * @license http://opensource.org/licenses/bsd-license.php BSD
  */
-namespace Ray\FakeContextParam;
+namespace Ray\FakeModule;
 
 use BEAR\Resource\FactoryInterface;
 use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
-use Ray\FakeContextParam\Annotation\FakeResource;
+use Ray\FakeModule\Annotation\FakeResource;
 
 class FakeResourceInterceptor implements MethodInterceptor
 {

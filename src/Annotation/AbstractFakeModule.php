@@ -4,8 +4,8 @@
  *
  * @license http://opensource.org/licenses/bsd-license.php BSD
  */
-namespace Ray\FakeModule\Exception;
+namespace Ray\FakeModule\Annotation;
 
-class NotFoundArgumentException extends LogicException
+abstract class AbstractFakeModule
 {
 }

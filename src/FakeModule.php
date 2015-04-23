@@ -1,20 +1,19 @@
 <?php
 /**
- * This file is part of the Ray.FakeContextParam package
+ * This file is part of the Ray.FakeModule package
  *
  * @license http://opensource.org/licenses/bsd-license.php BSD
  */
-namespace Ray\FakeContextParam;
+namespace Ray\FakeModule;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\Reader;
 use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
-use Ray\FakeContextParam\Annotation\FakeClass;
-use Ray\FakeContextParam\Annotation\FakeMethod;
-use Ray\FakeContextParam\Annotation\FakeResource;
+use Ray\FakeModule\Annotation\FakeMethod;
+use Ray\FakeModule\Annotation\FakeResource;
 
-class FakeContextParamModule extends AbstractModule
+class FakeModule extends AbstractModule
 {
     /**
      * {@inheritdoc}

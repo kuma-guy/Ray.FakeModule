@@ -1,6 +1,6 @@
 <?php
 
-namespace Ray\FakeContextParam;
+namespace Ray\FakeModule;
 
 use Ray\Di\Injector;
 use FakeVendor\Sandbox\AppModule;

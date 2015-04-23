@@ -2,7 +2,7 @@
 namespace FakeVendor\Sandbox\Resource\App;
 
 use BEAR\Resource\ResourceObject;
-use Ray\FakeContextParam\Annotation\FakeResource;
+use Ray\FakeModule\Annotation\FakeResource;
 
 class User extends ResourceObject
 {

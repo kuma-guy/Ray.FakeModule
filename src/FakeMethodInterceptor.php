@@ -1,18 +1,17 @@
 <?php
 /**
- * This file is part of the Ray.FakeContextParam
+ * This file is part of the Ray.FakeModule
  *
  * @license http://opensource.org/licenses/bsd-license.php BSD
  */
-namespace Ray\FakeContextParam;
+namespace Ray\FakeModule;
 
 use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
-use Ray\Di\FakeAnnoClass;
 use Ray\Di\Injector;
 use Ray\Di\InjectorInterface;
-use Ray\FakeContextParam\Annotation\FakeClass;
+use Ray\FakeModule\Annotation\FakeClass;
 
 class FakeMethodInterceptor implements MethodInterceptor
 {

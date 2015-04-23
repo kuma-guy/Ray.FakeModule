@@ -2,8 +2,8 @@
 
 namespace FakeVendor\Sandbox\Module;
 
-use Ray\FakeContextParam\Annotation\FakeClass;
-use Ray\FakeContextParam\Annotation\FakeMethod;
+use Ray\FakeModule\Annotation\FakeClass;
+use Ray\FakeModule\Annotation\FakeMethod;
 
 /**
  * @FakeClass(class="Fake\TestClass")

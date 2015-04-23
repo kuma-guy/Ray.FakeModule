@@ -10,13 +10,13 @@ WIP
 
 ```php
 use Ray\Di\AbstractModule;
-use Ray\FakeContextParam\FakeContextParamModule;
+use Ray\FakeModule\FakeModuleModule;
 
 class AppModule extends AbstractModule
 {
     protected function configure()
     {
-        $this->install(new FakeContextParamModule);
+        $this->install(new FakeModuleModule);
     }
 }
 ```
@@ -30,7 +30,7 @@ Annotate target method of resource object with `@FakeResource` annotation.
 *this feature heavily depends on BEAR.Resource [https://github.com/bearsunday/BEAR.Resource]*
 
 ```php
-use Ray\FakeContextParam\Annotation\FakeResource;
+use Ray\FakeModule\Annotation\FakeResource;
 
 class User
 {

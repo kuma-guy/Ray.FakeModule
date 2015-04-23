@@ -1,9 +1,9 @@
 <?php
 
-namespace Ray\FakeContextParam;
+namespace Ray\FakeModule;
 
 use BEAR\Resource\ResourceInterface;
-use Ray\FakeContextParam\Annotation\FakeResource;
+use Ray\FakeModule\Annotation\FakeResource;
 use Ray\Di\Injector;
 use FakeVendor\Sandbox\Resource\App\User;
 use FakeVendor\Sandbox\AppModule;
