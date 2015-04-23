@@ -12,4 +12,8 @@ namespace Ray\FakeContextParam\Annotation;
  */
 final class FakeResource extends AbstractFakeContextParam
 {
+    /**
+     * @var string
+     */
+    public $uri;
 }

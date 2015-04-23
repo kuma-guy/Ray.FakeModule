@@ -6,6 +6,10 @@
  */
 namespace Ray\FakeContextParam\Annotation;
 
-abstract class AbstractFakeContextParam
+/**
+ * @Annotation
+ * @Target("METHOD")
+ */
+final class FakeMethod extends AbstractFakeContextParam
 {
 }
