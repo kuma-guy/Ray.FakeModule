@@ -8,7 +8,7 @@ use Ray\Di\Injector;
 use FakeVendor\Sandbox\Resource\App\User;
 use FakeVendor\Sandbox\AppModule;
 
-class FakeParamInjectInterceptorTest extends \PHPUnit_Framework_TestCase
+class FakeResourceInterceptorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var ResourceInterface
