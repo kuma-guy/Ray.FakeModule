@@ -10,13 +10,13 @@ WIP
 
 ```php
 use Ray\Di\AbstractModule;
-use Ray\FakeModule\FakeModuleModule;
+use Ray\FakeModule\FakeModule;
 
 class AppModule extends AbstractModule
 {
     protected function configure()
     {
-        $this->install(new FakeModuleModule);
+        $this->install(new FakeModule);
     }
 }
 ```
