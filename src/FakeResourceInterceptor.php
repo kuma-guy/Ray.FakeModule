@@ -10,9 +10,9 @@ use BEAR\Resource\FactoryInterface;
 use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
-use Ray\FakeContextParam\Annotation\Fake;
+use Ray\FakeContextParam\Annotation\FakeResource;
 
-class FakeContextParamInterceptor implements MethodInterceptor
+class FakeResourceInterceptor implements MethodInterceptor
 {
     /**
      * @var FactoryInterface
@@ -50,7 +50,7 @@ class FakeContextParamInterceptor implements MethodInterceptor
         $arguments = $invocation->getArguments();
         $arguments = (array) $arguments;
         // Get fake uri for mocking the resource.
-        $annotation = $this->reader->getMethodAnnotation($method, Fake::class);
+        $annotation = $this->reader->getMethodAnnotation($method, FakeResource::class);
         // Create a instance of fake resource.
         $ro = $this->factory->newInstance($annotation->uri);
         // Invoke.

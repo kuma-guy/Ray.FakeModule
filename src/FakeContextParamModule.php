@@ -10,7 +10,7 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\Reader;
 use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
-use Ray\FakeContextParam\Annotation\Fake;
+use Ray\FakeContextParam\Annotation\FakeResource;
 
 class FakeContextParamModule extends AbstractModule
 {
@@ -21,8 +21,8 @@ class FakeContextParamModule extends AbstractModule
     {
         $this->bindInterceptor(
             $this->matcher->any(),
-            $this->matcher->annotatedWith(Fake::class),
-            [FakeContextParamInterceptor::class]
+            $this->matcher->annotatedWith(FakeResource::class),
+            [FakeResourceInterceptor::class]
         );
         $this->bind(Reader::class)->to(AnnotationReader::class)->in(Scope::SINGLETON);
     }

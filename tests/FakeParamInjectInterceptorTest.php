@@ -3,7 +3,7 @@
 namespace Ray\FakeContextParam;
 
 use BEAR\Resource\ResourceInterface;
-use Ray\FakeContextParam\Annotation\Fake;
+use Ray\FakeContextParam\Annotation\FakeResource;
 use Ray\Di\Injector;
 use FakeVendor\Sandbox\Resource\App\User;
 use FakeVendor\Sandbox\AppModule;
@@ -22,7 +22,7 @@ class FakeParamInjectInterceptorTest extends \PHPUnit_Framework_TestCase
 
     public function testFakeRequest()
     {
-        // Real User Resource with annotation @Fake(uri="app://self/fake/user")
+        // Real User Resource with annotation @FakeResource(uri="app://self/fake/user")
         $response = $this->resource
             ->get
             ->uri('app://self/User')

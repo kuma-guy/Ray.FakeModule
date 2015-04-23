@@ -10,6 +10,6 @@ namespace Ray\FakeContextParam\Annotation;
  * @Annotation
  * @Target("METHOD")
  */
-final class Fake extends AbstractFakeContextParam
+final class FakeResource extends AbstractFakeContextParam
 {
 }

@@ -2,7 +2,7 @@
 namespace FakeVendor\Sandbox\Resource\App;
 
 use BEAR\Resource\ResourceObject;
-use Ray\FakeContextParam\Annotation\Fake;
+use Ray\FakeContextParam\Annotation\FakeResource;
 
 class User extends ResourceObject
 {
@@ -17,7 +17,7 @@ class User extends ResourceObject
     ];
 
     /**
-     * @Fake(uri="app://self/fake/user")
+     * @FakeResource(uri="app://self/fake/user")
      */
     public function onGet($id)
     {
