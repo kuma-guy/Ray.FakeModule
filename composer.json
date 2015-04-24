@@ -1,6 +1,6 @@
 {
     "name": "ray/fake-module",
-    "description":"",
+    "description":"this is Ray.Di module for developing mocking feature.",
     "keywords":[
       "Ray.Di Module",
       "Fake context",
