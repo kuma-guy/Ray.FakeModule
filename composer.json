@@ -25,13 +25,6 @@
             "FakeVendor\\Sandbox\\": "tests/Fake/FakeVendor/Sandbox/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "0.1.x-dev"
-        }
-    },
     "require": {
         "ray/di": "~2.0@dev",
         "doctrine/cache": "~1.0",
