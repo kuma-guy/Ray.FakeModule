@@ -1,8 +1,11 @@
 {
-    "name": "ray/fake-context-param-module",
+    "name": "ray/fake-module",
     "description":"",
     "keywords":[
-      "Ray.Di Module", "Fake context", "Testability"
+      "Ray.Di Module",
+      "Fake context",
+      "Fake module",
+      "Testability"
     ],
     "license": "BSD-3-Clause",
     "autoload":{
