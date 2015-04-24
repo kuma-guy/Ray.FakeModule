@@ -4,8 +4,8 @@
 
 ### Composer install
 
-WIP
-
+    $ composer require ray/fake-module
+    
 ### Module install
 
 ```php
