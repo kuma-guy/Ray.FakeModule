@@ -45,6 +45,7 @@ class User
 
 ### Fake a class method.
 
+Real class.
 
 ```php
 use Ray\FakeModule\Annotation\FakeClass;
@@ -59,6 +60,18 @@ class TestClass
      */
     public function output() {
         return  "test class output";
+    }
+}
+```
+
+Fake class.
+
+```php
+namespace FakeVendor\Sandbox\Module\Fake;
+class TestClass 
+{
+    public function output() {
+        return "fake class output";
     }
 }
 ```
