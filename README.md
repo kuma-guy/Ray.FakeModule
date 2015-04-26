@@ -41,6 +41,7 @@ class User
     {
         // ...
     }
+}
 ```
 
 ### Fake a class method.
