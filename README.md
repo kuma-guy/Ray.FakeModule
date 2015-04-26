@@ -48,8 +48,11 @@ class User
 Real class.
 
 ```php
+namespace FakeVendor\Sandbox\Module;
+
 use Ray\FakeModule\Annotation\FakeClass;
 use Ray\FakeModule\Annotation\FakeMethod;
+
 /**
  * @FakeClass(class="Fake\TestClass")
  */
