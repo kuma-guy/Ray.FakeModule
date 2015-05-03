@@ -6,7 +6,7 @@ php:
   - hhvm
 
 script:
- - composer install --prefer-source
+ - composer install
  - phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
