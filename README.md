@@ -1,4 +1,4 @@
-# Ray.FakeModule
+# Ray.FakeModule [![Build Status](https://travis-ci.org/shingo-kumagai/Ray.FakeModule.svg)](https://travis-ci.org/shingo-kumagai/Ray.FakeModule)
 
 ## Installation
 
