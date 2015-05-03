@@ -1,4 +1,4 @@
-# Ray.FakeModule [![Build Status](https://travis-ci.org/shingo-kumagai/Ray.FakeModule.svg)](https://travis-ci.org/shingo-kumagai/Ray.FakeModule)
+# Ray.FakeModule [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shingo-kumagai/Ray.FakeModule/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/shingo-kumagai/Ray.FakeModule/?branch=master) [![Build Status](https://travis-ci.org/shingo-kumagai/Ray.FakeModule.svg)](https://travis-ci.org/shingo-kumagai/Ray.FakeModule)
 
 ## Installation
 
