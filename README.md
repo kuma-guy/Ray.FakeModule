@@ -46,6 +46,8 @@ class User
 
 ### Fake a class method.
 
+@FakeClass annotation will be used to specify fake class that you want to proceed instead of real class
+
 Real class.
 
 ```php
