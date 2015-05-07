@@ -25,7 +25,8 @@ class AppModule extends AbstractModule
 
 ### Fake a resource uri.
 
-Annotate target method of resource object with `@FakeResource` annotation.
+@FakeResource annotation fake uri for building mock.
+Annotate target method of resource object with `@FakeResource` annotation as shown below.
 
 *this feature heavily depends on BEAR.Resource [https://github.com/bearsunday/BEAR.Resource]*
 
