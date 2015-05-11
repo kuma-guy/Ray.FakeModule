@@ -24,19 +24,12 @@ class FakeResourceInterceptor implements MethodInterceptor
      */
     private $reader;
 
-    /**
-     * @var FakeContext
-     */
-    private $FakeContext;
-
     public function __construct(
         FactoryInterface $factory,
-        Reader $reader,
-        FakeContext $FakeContext
+        Reader $reader
     ) {
         $this->factory = $factory;
         $this->reader = $reader;
-        $this->FakeContext = $FakeContext;
     }
 
     /**

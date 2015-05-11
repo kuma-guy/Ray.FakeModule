@@ -25,19 +25,12 @@ class FakeMethodInterceptor implements MethodInterceptor
      */
     private $reader;
 
-    /**
-     * @var FakeContext
-     */
-    private $FakeContext;
-
     public function __construct(
         InjectorInterface $injector,
-        Reader $reader,
-        FakeContext $FakeContext
+        Reader $reader
     ) {
         $this->injector = $injector;
         $this->reader = $reader;
-        $this->FakeContext = $FakeContext;
     }
 
     /**
