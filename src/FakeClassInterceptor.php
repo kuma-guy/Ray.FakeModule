@@ -36,15 +36,15 @@ class FakeClassInterceptor implements MethodInterceptor
      */
     public function invoke(MethodInvocation $invocation)
     {
-        // Get class name.
+        // Get the real class name.
         $fullClassName  = $invocation->getMethod()->class;
         $reflectClass   = new \ReflectionClass($fullClassName);
         $shortClassName = $reflectClass->getShortName();
 
-        // Get full faker class name.
+        // Get the full fake class name.
         $fakeClassName = str_replace($shortClassName, 'Fake' . $shortClassName, $fullClassName);
 
-        // If exists fake class, then invoke its method. otherwise invoke original method.
+        // If the fake class exists ,then invoke its method. otherwise invoke original class method.
         if (class_exists($fakeClassName)) {
             $fakeObj = $this->injector->getInstance($fakeClassName);
             $method = $invocation->getMethod()->name;

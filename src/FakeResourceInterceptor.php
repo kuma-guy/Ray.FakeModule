@@ -36,18 +36,18 @@ class FakeResourceInterceptor implements MethodInterceptor
      */
     public function invoke(MethodInvocation $invocation)
     {
-        // Resource object's method will be called.
+        // The resource object's method will be called.
         $method = $invocation->getMethod();
 
         // Get parameters.
         $arguments = $invocation->getArguments();
         $arguments = (array) $arguments;
 
-        // Get fake resource uri.
+        // Get the fake resource uri.
         $resourceObject = $invocation->getThis();
         $resourceObject->uri->path = str_replace('/', '/Fake', $resourceObject->uri->path);
 
-        // Create a instance of fake resource.
+        // Create a instance of the fake resource.
         $ro = $this->factory->newInstance($resourceObject->uri);
 
         // Invoke.
