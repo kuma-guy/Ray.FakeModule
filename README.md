@@ -27,18 +27,37 @@ class AppModule extends AbstractModule
 ### Fake a resource uri.
 
 @FakeResource annotation fake uri for building mock feature.
-Annotate target method, which you want to fake, with `@FakeResource` annotation and specify fake uri as shown below.
+Annotate target resource, which you want to fake, with `@FakeResource` annotation. Then, 'Fake' prefixed resource in same namespace will be called via interceptor when original resource method called.
 
 *this feature heavily depends on BEAR.Resource [https://github.com/bearsunday/BEAR.Resource]*
 
+real resource
 ```php
+namespace FakeVendor\Sandbox\Resource\App;
+
+use BEAR\Resource\ResourceObject;
 use Ray\FakeModule\Annotation\FakeResource;
 
-class User
+/**
+ * @FakeResource
+ */
+class User extends ResourceObject
 {
-    /**
-     * @FakeResource(uri="app://self/fake/user")
-     */
+    public function onGet($id)
+    {
+        // ...
+    }
+}
+```
+
+fake resource
+```php
+namespace FakeVendor\Sandbox\Resource\App;
+
+use BEAR\Resource\ResourceObject;
+
+class FakeUser extends ResourceObject
+{
     public function onGet($id)
     {
         // ...
@@ -48,7 +67,7 @@ class User
 
 ### Fake a class method.
 
-@FakeClass annotation will be used to specify fake class that you want to proceed instead of real class
+@FakeClass annotation work as same as @FakeResource.
 
 Real class.
 
@@ -56,16 +75,12 @@ Real class.
 namespace FakeVendor\Sandbox\Module;
 
 use Ray\FakeModule\Annotation\FakeClass;
-use Ray\FakeModule\Annotation\FakeMethod;
 
 /**
- * @FakeClass(class="Fake\TestClass")
+ * @FakeClass
  */
-class TestClass 
+class TestClass
 {
-    /**
-     * @FakeMethod
-     */
     public function output() {
         return  "test class output";
     }
@@ -75,8 +90,9 @@ class TestClass
 Fake class.
 
 ```php
-namespace FakeVendor\Sandbox\Module\Fake;
-class TestClass 
+namespace FakeVendor\Sandbox\Module;
+
+class FakeTestClass
 {
     public function output() {
         return "fake class output";
