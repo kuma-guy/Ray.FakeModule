@@ -31,7 +31,7 @@ Annotate target resource, which you want to fake, with `@FakeResource` annotatio
 
 *this feature heavily depends on BEAR.Resource [https://github.com/bearsunday/BEAR.Resource]*
 
-real resource
+Real resource
 ```php
 namespace FakeVendor\Sandbox\Resource\App;
 
@@ -50,7 +50,7 @@ class User extends ResourceObject
 }
 ```
 
-fake resource
+Fake resource
 ```php
 namespace FakeVendor\Sandbox\Resource\App;
 
