@@ -67,7 +67,7 @@ class FakeUser extends ResourceObject
 
 ### Fake a class method.
 
-@FakeClass annotation work as same as @FakeResource.
+`@FakeClass` annotation work as same as `@FakeResource`.
 
 Real class.
 
