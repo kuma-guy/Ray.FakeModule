@@ -12,8 +12,4 @@ namespace Ray\FakeModule\Annotation;
  */
 final class FakeClass extends AbstractFakeModule
 {
-    /**
-     * @var string
-     */
-    public $class;
 }

@@ -6,7 +6,7 @@ use Ray\Di\Injector;
 use FakeVendor\Sandbox\AppModule;
 use FakeVendor\Sandbox\Module\TestClass;
 
-class FakeMethodInterceptorTest extends \PHPUnit_Framework_TestCase
+class FakeClassInterceptorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var Injector

@@ -1,9 +1,9 @@
 <?php
-namespace FakeVendor\Sandbox\Resource\App\Fake;
+namespace FakeVendor\Sandbox\Resource\App;
 
 use BEAR\Resource\ResourceObject;
 
-class User extends ResourceObject
+class FakeUser extends ResourceObject
 {
     public $uri = 'dummy://self/Fake/User/';
     public $headers = [

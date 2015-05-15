@@ -9,11 +9,9 @@ namespace Ray\FakeModule;
 use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
-use Ray\Di\Injector;
 use Ray\Di\InjectorInterface;
-use Ray\FakeModule\Annotation\FakeClass;
 
-class FakeMethodInterceptor implements MethodInterceptor
+class FakeClassInterceptor implements MethodInterceptor
 {
     /**
      * @var InjectorInterface
@@ -43,14 +41,10 @@ class FakeMethodInterceptor implements MethodInterceptor
         $reflectClass   = new \ReflectionClass($fullClassName);
         $shortClassName = $reflectClass->getShortName();
 
-        // Get class annotation to specify faker.
-        $fakeClassName = $this->reader
-            ->getClassAnnotation($reflectClass, FakeClass::class)
-            ->class;
-
         // Get full faker class name.
-        $fakeClassName = str_replace($shortClassName, $fakeClassName, $fullClassName);
+        $fakeClassName = str_replace($shortClassName, 'Fake' . $shortClassName, $fullClassName);
 
+        // If exists fake class, then invoke its method. otherwise invoke original method.
         if (class_exists($fakeClassName)) {
             $fakeObj = $this->injector->getInstance($fakeClassName);
             $method = $invocation->getMethod()->name;

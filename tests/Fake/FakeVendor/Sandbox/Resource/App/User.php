@@ -4,6 +4,9 @@ namespace FakeVendor\Sandbox\Resource\App;
 use BEAR\Resource\ResourceObject;
 use Ray\FakeModule\Annotation\FakeResource;
 
+/**
+ * @FakeResource
+ */
 class User extends ResourceObject
 {
     public $uri = 'dummy://self/User';
@@ -16,9 +19,6 @@ class User extends ResourceObject
         ['id' => 3, 'name' => 'Porthos', 'age' => 17, 'blog_id' => 0]
     ];
 
-    /**
-     * @FakeResource(uri="app://self/fake/user")
-     */
     public function onGet($id)
     {
         if (!isset($this->users[$id])) {

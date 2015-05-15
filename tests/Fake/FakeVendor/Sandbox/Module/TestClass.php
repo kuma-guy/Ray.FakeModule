@@ -3,16 +3,12 @@
 namespace FakeVendor\Sandbox\Module;
 
 use Ray\FakeModule\Annotation\FakeClass;
-use Ray\FakeModule\Annotation\FakeMethod;
 
 /**
- * @FakeClass(class="Fake\TestClass")
+ * @FakeClass
  */
-class TestClass {
-
-    /**
-     * @FakeMethod
-     */
+class TestClass
+{
     public function output() {
         return  "test class output";
     }

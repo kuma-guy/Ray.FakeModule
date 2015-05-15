@@ -10,7 +10,6 @@ use BEAR\Resource\FactoryInterface;
 use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
-use Ray\FakeModule\Annotation\FakeResource;
 
 class FakeResourceInterceptor implements MethodInterceptor
 {
@@ -39,13 +38,18 @@ class FakeResourceInterceptor implements MethodInterceptor
     {
         // Resource object's method will be called.
         $method = $invocation->getMethod();
+
         // Get parameters.
         $arguments = $invocation->getArguments();
         $arguments = (array) $arguments;
-        // Get fake uri for mocking the resource.
-        $annotation = $this->reader->getMethodAnnotation($method, FakeResource::class);
+
+        // Get fake resource uri.
+        $resourceObject = $invocation->getThis();
+        $resourceObject->uri->path = str_replace('/', '/Fake', $resourceObject->uri->path);
+
         // Create a instance of fake resource.
-        $ro = $this->factory->newInstance($annotation->uri);
+        $ro = $this->factory->newInstance($resourceObject->uri);
+
         // Invoke.
         return call_user_func_array(array($ro, $method->name), $arguments);
     }

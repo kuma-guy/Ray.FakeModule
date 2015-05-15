@@ -1,9 +1,9 @@
 <?php
 
-namespace FakeVendor\Sandbox\Module\Fake;
+namespace FakeVendor\Sandbox\Module;
 
-class TestClass {
-
+class FakeTestClass
+{
     public function output() {
         return "fake class output";
     }

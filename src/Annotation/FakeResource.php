@@ -8,12 +8,8 @@ namespace Ray\FakeModule\Annotation;
 
 /**
  * @Annotation
- * @Target("METHOD")
+ * @Target("CLASS")
  */
 final class FakeResource extends AbstractFakeModule
 {
-    /**
-     * @var string
-     */
-    public $uri;
 }
