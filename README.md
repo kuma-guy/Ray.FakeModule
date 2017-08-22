@@ -1,4 +1,9 @@
 # Ray.FakeModule 
+
+
+**This package is deprecated. Please use [Ray.TestDouble](https://github.com/ray-di/Ray.TestDouble) instead.**
+
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shingo-kumagai/Ray.FakeModule/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/shingo-kumagai/Ray.FakeModule/?branch=master) [![Build Status](https://travis-ci.org/kuma-guy/Ray.FakeModule.svg?branch=1.x)](https://travis-ci.org/kuma-guy/Ray.FakeModule)
 
 ## Installation
