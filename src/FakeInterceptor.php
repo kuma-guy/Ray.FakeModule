@@ -11,7 +11,7 @@ use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
 use Ray\Di\InjectorInterface;
 
-class FakeClassInterceptor implements MethodInterceptor
+class FakeInterceptor implements MethodInterceptor
 {
     /**
      * @var InjectorInterface

@@ -19,7 +19,7 @@ class FakeModule extends AbstractModule
         $this->bindInterceptor(
             $this->matcher->annotatedWith(Fakeable::class),
             $this->matcher->any(),
-            [FakeClassInterceptor::class]
+            [FakeInterceptor::class]
         );
     }
 }
