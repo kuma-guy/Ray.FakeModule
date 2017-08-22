@@ -10,6 +10,7 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\Reader;
 use Ray\Di\AbstractModule;
 use Ray\Di\Scope;
+use Ray\FakeModule\Annotation\Fakeable;
 use Ray\FakeModule\Annotation\FakeClass;
 use Ray\FakeModule\Annotation\FakeResource;
 
@@ -21,17 +22,9 @@ class FakeModule extends AbstractModule
     protected function configure()
     {
         $this->bindInterceptor(
-            $this->matcher->annotatedWith(FakeResource::class),
-            $this->matcher->any(),
-            [FakeResourceInterceptor::class]
-        );
-
-        $this->bindInterceptor(
-            $this->matcher->annotatedWith(FakeClass::class),
+            $this->matcher->annotatedWith(Fakeable::class),
             $this->matcher->any(),
             [FakeClassInterceptor::class]
         );
-
-        $this->bind(Reader::class)->to(AnnotationReader::class)->in(Scope::SINGLETON);
     }
 }
