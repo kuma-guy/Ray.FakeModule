@@ -1,12 +1,11 @@
 <?php
 /**
- * This file is part of the Ray.FakeModule
+ * This file is part of the Ray.FakeModule package.
  *
- * @license http://opensource.org/licenses/bsd-license.php BSD
+ * @license http://opensource.org/licenses/MIT MIT
  */
 namespace Ray\FakeModule;
 
-use Doctrine\Common\Annotations\Reader;
 use Ray\Aop\MethodInterceptor;
 use Ray\Aop\MethodInvocation;
 use Ray\Di\InjectorInterface;
@@ -18,7 +17,8 @@ class FakeInterceptor implements MethodInterceptor
      */
     private $injector;
 
-    public function __construct(InjectorInterface $injector) {
+    public function __construct(InjectorInterface $injector)
+    {
         $this->injector = $injector;
     }
 
@@ -28,8 +28,8 @@ class FakeInterceptor implements MethodInterceptor
     public function invoke(MethodInvocation $invocation)
     {
         // Get the real class name.
-        $fullClassName  = $invocation->getMethod()->class;
-        $reflectClass   = new \ReflectionClass($fullClassName);
+        $fullClassName = $invocation->getMethod()->class;
+        $reflectClass = new \ReflectionClass($fullClassName);
         $shortClassName = $reflectClass->getShortName();
 
         // Get the full fake class name.
