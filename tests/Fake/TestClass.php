@@ -1,6 +1,6 @@
 <?php
 
-namespace FakeVendor\Sandbox\Module;
+namespace Ray\FakeModule;
 
 use Ray\FakeModule\Annotation\Fakeable;
 

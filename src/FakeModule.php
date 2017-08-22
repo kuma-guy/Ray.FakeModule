@@ -6,13 +6,8 @@
  */
 namespace Ray\FakeModule;
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Annotations\Reader;
 use Ray\Di\AbstractModule;
-use Ray\Di\Scope;
 use Ray\FakeModule\Annotation\Fakeable;
-use Ray\FakeModule\Annotation\FakeClass;
-use Ray\FakeModule\Annotation\FakeResource;
 
 class FakeModule extends AbstractModule
 {

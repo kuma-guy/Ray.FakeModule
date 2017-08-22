@@ -3,8 +3,6 @@
 namespace Ray\FakeModule;
 
 use Ray\Di\Injector;
-use FakeVendor\Sandbox\AppModule;
-use FakeVendor\Sandbox\Module\TestClass;
 
 class FakeClassInterceptorTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,7 +13,7 @@ class FakeClassInterceptorTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->injector = (new Injector(new AppModule()));
+        $this->injector = (new Injector(new TestModule));
     }
 
     public function testFakeRequest()
