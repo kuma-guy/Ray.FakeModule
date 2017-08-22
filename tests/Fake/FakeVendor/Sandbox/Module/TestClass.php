@@ -2,10 +2,10 @@
 
 namespace FakeVendor\Sandbox\Module;
 
-use Ray\FakeModule\Annotation\FakeClass;
+use Ray\FakeModule\Annotation\Fakeable;
 
 /**
- * @FakeClass
+ * @Fakeable
  */
 class TestClass
 {

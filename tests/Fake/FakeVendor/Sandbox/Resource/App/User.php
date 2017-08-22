@@ -2,10 +2,11 @@
 namespace FakeVendor\Sandbox\Resource\App;
 
 use BEAR\Resource\ResourceObject;
+use Ray\FakeModule\Annotation\Fakeable;
 use Ray\FakeModule\Annotation\FakeResource;
 
 /**
- * @FakeResource
+ * @Fakeable
  */
 class User extends ResourceObject
 {
