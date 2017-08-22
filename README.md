@@ -1,11 +1,13 @@
 # Ray.FakeModule 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/shingo-kumagai/Ray.FakeModule/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/shingo-kumagai/Ray.FakeModule/?branch=master) [![Build Status](https://travis-ci.org/kuma-guy/Ray.FakeModule.svg?branch=1.x)](https://travis-ci.org/kuma-guy/Ray.FakeModule)
 
+A TestDobule suite for Ray.Di DI framework
+
 ## Installation
 
 ### Composer install
 
-    $ composer require ray/fake-module
+    $ composer require ray/fake-module --dev
     
 ### Module install
 
@@ -21,55 +23,13 @@ class AppModule extends AbstractModule
     }
 }
 ```
-### Usage
+
+## Fake a class method
 
 
-### Fake a resource uri.
+Annotate `@Fabkeable` annotation for the target. Then, 'Fake' prefixed class in same namespace will be called instead of original class.
 
-`@FakeResource` annotation fake uri for building mock feature.
-Annotate target resource, which you want to fake, with `@FakeResource` annotation. Then, 'Fake' prefixed resource in same namespace will be called via interceptor when original resource method called.
-
-*this feature heavily depends on BEAR.Resource [https://github.com/bearsunday/BEAR.Resource]*
-
-Real resource
-```php
-namespace FakeVendor\Sandbox\Resource\App;
-
-use BEAR\Resource\ResourceObject;
-use Ray\FakeModule\Annotation\FakeResource;
-
-/**
- * @FakeResource
- */
-class User extends ResourceObject
-{
-    public function onGet($id)
-    {
-        // ...
-    }
-}
-```
-
-Fake resource
-```php
-namespace FakeVendor\Sandbox\Resource\App;
-
-use BEAR\Resource\ResourceObject;
-
-class FakeUser extends ResourceObject
-{
-    public function onGet($id)
-    {
-        // ...
-    }
-}
-```
-
-### Fake a class method.
-
-`@FakeClass` annotation work as same as `@FakeResource`.
-
-Real class.
+Actual class
 
 ```php
 namespace FakeVendor\Sandbox\Module;
@@ -77,7 +37,7 @@ namespace FakeVendor\Sandbox\Module;
 use Ray\FakeModule\Annotation\FakeClass;
 
 /**
- * @FakeClass
+ * @Fakeable
  */
 class TestClass
 {
@@ -87,7 +47,7 @@ class TestClass
 }
 ```
 
-Fake class.
+Fake class
 
 ```php
 namespace FakeVendor\Sandbox\Module;
@@ -100,7 +60,3 @@ class FakeTestClass
 }
 ```
 
-### Requirements
-
- * PHP 5.5+
- * hhvm
